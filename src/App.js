@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom'
-import Github from './Github'
 import './App.css';
+import Github from './Github'
 
 class App extends Component {
   render() {
