@@ -1,0 +1,44 @@
+import React, { Component } from 'react'
+import './PokemonUser.css'
+
+class PokemonUser extends Component {
+  state = {
+    user: {
+      name: '',
+      id: '',
+      height: '',
+    }
+  }
+
+  constructor(props) {
+    super(props)
+    this.fetchUserData(props)
+  }
+
+  fetchUserData = (props) => {
+    fetch(`http://pokeapi.co/api/v2/pokemon/${props.match.params.name}`)
+      .then(response => response.json())
+      .then(user => this.setState({ user }))
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const locationChanged = (nextProps.location !== this.props.location)
+    if (locationChanged) {
+      this.fetchUserData(nextProps)
+    }
+  }
+
+  render() {
+    const { user } = this.state
+    return (
+      <div className="pokemon-user">
+        <img src={user.sprites.front_default} alt="Pokemon" />
+        <h2>{user.name}</h2>
+        <h3>id: {user.id}</h3>
+        <h3>height: {user.height}</h3>
+      </div>
+    )
+  }
+}
+
+export default PokemonUser

@@ -1,0 +1,8 @@
+.pokemon-user img {
+  border-radius: 50%;
+  height: 200px;
+}
+
+.pokemon-user h3 {
+  color: #999;
+}
