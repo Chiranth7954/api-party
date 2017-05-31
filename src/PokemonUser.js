@@ -34,9 +34,11 @@ class PokemonUser extends Component {
     return (
       <div className="pokemon-user">
         <img src={user.sprites.front_default} alt={user.name} />
-        
+        <img src={user.sprites.back_default} alt={user.name} />
+        <img src={user.sprites.front_shiny} alt={user.name} />
+        <img src={user.sprites.back_shiny} alt={user.name} />
         <h2>species: {user.name}</h2>
-        <h3>id: {user.id}</h3>
+        <h3>#{user.id}</h3>
         <h3>height: {user.height}</h3>
         <h3>weight: {user.weight}</h3>
       </div>
